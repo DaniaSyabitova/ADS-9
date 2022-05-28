@@ -16,10 +16,9 @@ class BST {
   int heightTree(Node* root) {
     if (root == nullptr) {
       return 0;
-    } else {
-      int R = heightTree(root->right);
-      int L = heightTree(root->left);
     }
+    int R = heightTree(root->right);
+    int L = heightTree(root->left);
     if (L>R) {
       return (L+1);
     } else {
@@ -69,9 +68,9 @@ class BST {
       root->count = 1;
       root->right = root->left = nullptr;
     } else if (val < root->value) {
-      rooot->left = addNode(root->left, val);
+      root->left = addNode(root->left, val);
     } else if (val > root->value) {
-      rooot->right = addNode(root->right, val);
+      root->right = addNode(root->right, val);
     } else {
       root->count++;
     }
@@ -86,7 +85,7 @@ class BST {
   }
   
   int depth() {
-    ruturn heightTree(root) - 1;
+    return heightTree(root) - 1;
   }
   
   int search(T val) {
