@@ -2,6 +2,7 @@
 #ifndef INCLUDE_BST_H_
 #define INCLUDE_BST_H_
 #include <string>
+#include <iostream>
 template <typename T>
 class BST {
  private:
@@ -28,7 +29,7 @@ class BST {
   
   void delTree(Node* root) {
     if (root == nullptr) {
-      return ;
+      return;
     } else {
       delTree(root->left);
       delTree(root->right);
@@ -48,7 +49,7 @@ class BST {
       }
     }
   }
-  
+
   int searchNode(Node* root, T val) {
     if (root == nullptr) {
       return 0;
@@ -60,7 +61,7 @@ class BST {
       return searchNode(root->right, val);
     }
   }
-  
+
   Node* addNode(Node* root, T val) {
     if (root == nullptr) {
       root = new Node;
@@ -79,15 +80,15 @@ class BST {
 
  public:
   BST(): root(nullptr) {}
-  
+
   void add(T val) {
     root = addNode(root, val);
   }
-  
+
   int depth() {
     return heightTree(root) - 1;
   }
-  
+
   int search(T val) {
     return searchNode(root, val);
   }
