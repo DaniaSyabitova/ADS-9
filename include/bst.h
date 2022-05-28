@@ -13,20 +13,20 @@ class BST {
     Node* left;
   };
   Node* root;
-  
+
   int heightTree(Node* root) {
     if (root == nullptr) {
       return 0;
     }
     int R = heightTree(root->right);
     int L = heightTree(root->left);
-    if (L>R) {
+    if (L > R) {
       return (L+1);
     } else {
       return (R+1);
     }
   }
-  
+
   void delTree(Node* root) {
     if (root == nullptr) {
       return;
@@ -36,15 +36,15 @@ class BST {
       delete root;
     }
   }
-  
+
   void printTree(Node* root) {
     if (root == nullptr) {
       return;
     } else {
       printTree(root->left);
       for (int i = 0; i < root->count; i++) {
-        std::cout<<root->value<<" ";
-        std::cout<<'\n';
+        std::cout << root->value << " ";
+        std::cout << '\n';
         printTree(root->right);
       }
     }
